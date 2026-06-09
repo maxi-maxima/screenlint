@@ -17,7 +17,7 @@
     "build": "tsc -p tsconfig.json",
     "check": "npm run lint && npm run test && npm run build",
     "dev": "tsx src/cli.ts",
-    "demo": "tsx src/cli.ts scan demo --out reports/demo --fail-on error",
+    "demo": "tsx src/cli.ts demo --out reports/demo --fail-on never",
     "lint": "eslint .",
     "prepare": "npm run build",
     "test": "vitest run",
