@@ -1,0 +1,32 @@
+name: Screenlint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  screenlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      # Replace this with your app's own build/start command.
+      - run: npm run build
+
+      # Replace the URL with your local dev server URL.
+      - name: Scan rendered UI
+        run: npx screenlint scan http://127.0.0.1:3000 --out reports/screenlint --fail-on error
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenlint-report
+          path: reports/screenlint
