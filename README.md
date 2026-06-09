@@ -27,7 +27,7 @@ No API keys. No cloud account. No visual baseline setup.
 ## 30 Second Demo
 
 ```bash
-npx screenlint demo
+npx github:maxi-maxima/screenlint demo
 ```
 
 The demo creates an intentionally broken local page and writes:
@@ -43,19 +43,19 @@ reports/demo/screenshots/mobile.png
 ## Scan A Page
 
 ```bash
-npx screenlint scan http://localhost:3000 --out reports/screenlint
+npx github:maxi-maxima/screenlint scan http://localhost:3000 --out reports/screenlint
 ```
 
 Scan a local HTML file:
 
 ```bash
-npx screenlint scan ./dist/index.html --viewport mobile
+npx github:maxi-maxima/screenlint scan ./dist/index.html --viewport mobile
 ```
 
 Use it as a CI gate:
 
 ```bash
-npx screenlint scan http://localhost:3000 --fail-on error
+npx github:maxi-maxima/screenlint scan http://localhost:3000 --fail-on error
 ```
 
 Exit codes:
@@ -87,7 +87,7 @@ Copy `templates/github-action.yml` into `.github/workflows/screenlint.yml`.
 
 ```yaml
 - name: Scan rendered UI
-  run: npx screenlint scan http://127.0.0.1:3000 --out reports/screenlint --fail-on error
+  run: npx github:maxi-maxima/screenlint scan http://127.0.0.1:3000 --out reports/screenlint --fail-on error
 ```
 
 Upload the report artifact:

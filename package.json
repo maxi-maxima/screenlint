@@ -19,6 +19,7 @@
     "dev": "tsx src/cli.ts",
     "demo": "tsx src/cli.ts scan demo --out reports/demo --fail-on error",
     "lint": "eslint .",
+    "prepare": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },
